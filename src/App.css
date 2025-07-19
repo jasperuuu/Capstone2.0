@@ -1,0 +1,334 @@
+/* Unick Enterprises - Woodcraft Theme */
+
+:root {
+  --wood-primary: #8B4513;
+  --wood-secondary: #D2B48C;
+  --wood-accent: #CD853F;
+  --wood-dark: #654321;
+  --wood-light: #F5DEB3;
+  --wood-cream: #FFF8DC;
+  --wood-green: #228B22;
+  --wood-text: #2F1B14;
+  --wood-muted: #A0522D;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: var(--wood-cream);
+  color: var(--wood-text);
+  line-height: 1.6;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Custom Button Styles */
+.btn-wood-primary {
+  background-color: var(--wood-primary);
+  border-color: var(--wood-primary);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-wood-primary:hover {
+  background-color: var(--wood-dark);
+  border-color: var(--wood-dark);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(139, 69, 19, 0.3);
+}
+
+.btn-wood-secondary {
+  background-color: var(--wood-secondary);
+  border-color: var(--wood-secondary);
+  color: var(--wood-text);
+  font-weight: 600;
+}
+
+.btn-wood-secondary:hover {
+  background-color: var(--wood-accent);
+  border-color: var(--wood-accent);
+  color: white;
+}
+
+/* Card Styles */
+.card-wood {
+  background-color: white;
+  border: 2px solid var(--wood-secondary);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-wood:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.2);
+}
+
+.card-wood .card-header {
+  background-color: var(--wood-light);
+  border-bottom: 2px solid var(--wood-secondary);
+  color: var(--wood-text);
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--wood-primary) 0%, var(--wood-accent) 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="wood" patternUnits="userSpaceOnUse" width="100" height="100"><rect fill="%23654321" width="100" height="100" opacity="0.1"/><path d="M0 0h100v100H0z" fill="none" stroke="%23D2B48C" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23wood)"/></svg>') repeat;
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.product-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.2);
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background-color: var(--wood-light);
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--wood-text);
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--wood-primary);
+  margin-bottom: 1rem;
+}
+
+.product-category {
+  background-color: var(--wood-secondary);
+  color: var(--wood-text);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+/* Navigation */
+.navbar-wood {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.1);
+  border-bottom: 3px solid var(--wood-secondary);
+}
+
+.navbar-brand-wood {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--wood-primary) !important;
+  text-decoration: none;
+}
+
+.nav-link-wood {
+  color: var(--wood-text) !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link-wood:hover {
+  color: var(--wood-primary) !important;
+}
+
+/* Cart Badge */
+.cart-badge {
+  background-color: var(--wood-primary);
+  color: white;
+  border-radius: 50%;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+/* Footer */
+.footer-wood {
+  background-color: var(--wood-dark);
+  color: var(--wood-light);
+  padding: 3rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.footer-wood h5 {
+  color: var(--wood-secondary);
+  margin-bottom: 1rem;
+}
+
+.footer-wood a {
+  color: var(--wood-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-wood a:hover {
+  color: var(--wood-secondary);
+}
+
+/* Form Styles */
+.form-control-wood {
+  border: 2px solid var(--wood-secondary);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control-wood:focus {
+  border-color: var(--wood-primary);
+  box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.25);
+}
+
+/* Status Badges */
+.status-pending {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.status-confirmed {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.status-in-production {
+  background-color: #fd7e14;
+  color: white;
+}
+
+.status-completed {
+  background-color: var(--wood-green);
+  color: white;
+}
+
+.status-shipped {
+  background-color: #6f42c1;
+  color: white;
+}
+
+.status-delivered {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Loading Spinner */
+.spinner-wood {
+  border: 3px solid var(--wood-light);
+  border-top: 3px solid var(--wood-primary);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wood-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wood-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wood-primary);
+}
