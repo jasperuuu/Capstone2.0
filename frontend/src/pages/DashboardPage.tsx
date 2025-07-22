@@ -3,12 +3,10 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useAuth } from '../contexts/AuthContext';
 import { dashboardService } from '../services/authService';
 import { 
-  LayoutDashboard, 
   ShoppingCart, 
   Users, 
   Package, 
   DollarSign,
-  TrendingUp,
   CheckCircle,
   Clock,
   AlertCircle

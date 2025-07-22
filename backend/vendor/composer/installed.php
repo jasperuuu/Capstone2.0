@@ -3,7 +3,7 @@
         'name' => 'magic-loops/backend',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '085f7d0770706fb167b5e5dd70bab319b102b2f8',
+        'reference' => '2e7ddbefbbacfcaa689749b4d5b171f7eac514b7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -505,7 +505,7 @@
         'magic-loops/backend' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '085f7d0770706fb167b5e5dd70bab319b102b2f8',
+            'reference' => '2e7ddbefbbacfcaa689749b4d5b171f7eac514b7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

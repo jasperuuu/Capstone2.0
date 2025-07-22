@@ -2,9 +2,9 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
-  Zap, 
-  Plus, 
-  Compass, 
+  ShoppingCart, 
+  Package, 
+  Users, 
   User, 
   LogOut,
   Settings
@@ -38,19 +38,19 @@ const Sidebar: React.FC = () => {
       label: 'Dashboard',
     },
     {
-      path: '/loops',
-      icon: Zap,
-      label: 'My Loops',
+      path: '/orders',
+      icon: ShoppingCart,
+      label: 'Orders',
     },
     {
-      path: '/loops/new',
-      icon: Plus,
-      label: 'Create Loop',
+      path: '/products',
+      icon: Package,
+      label: 'Products',
     },
     {
-      path: '/explore',
-      icon: Compass,
-      label: 'Explore',
+      path: '/customers',
+      icon: Users,
+      label: 'Customers',
     },
   ];
 
@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
     <div className="sidebar">
       <div className="sidebar-brand">
         <Link to="/dashboard" className="text-decoration-none">
-          <h3>Magic Loops</h3>
+          <h3>Business Manager</h3>
         </Link>
       </div>
 
@@ -95,20 +95,12 @@ const Sidebar: React.FC = () => {
           </div>
         </div>
 
-        {/* Credits */}
+        {/* Quick Stats */}
         <div className="mb-3">
-          <div className="text-muted small mb-1">Credits</div>
-          <div className="progress" style={{ height: '6px' }}>
-            <div
-              className="progress-bar"
-              style={{
-                width: `${user ? ((user.credits_used / user.credits_limit) * 100) : 0}%`,
-                background: 'var(--gradient-primary)',
-              }}
-            />
-          </div>
-          <div className="text-muted small mt-1">
-            {user ? `${user.credits_limit - user.credits_used} remaining` : '0 remaining'}
+          <div className="text-muted small mb-1">Quick Access</div>
+          <div className="d-flex justify-content-between text-muted small">
+            <span>Active</span>
+            <span>Ready</span>
           </div>
         </div>
 

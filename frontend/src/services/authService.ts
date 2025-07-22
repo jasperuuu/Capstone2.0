@@ -57,54 +57,34 @@ export const authService = {
   },
 };
 
-export const loopService = {
-  async getLoops(params?: any) {
-    const response = await api.get('/loops', { params });
+export const businessService = {
+  async getOrders(params?: any) {
+    const response = await api.get('/orders', { params });
     return response.data;
   },
 
-  async getLoop(id: string) {
-    const response = await api.get(`/loops/${id}`);
+  async getOrder(id: string) {
+    const response = await api.get(`/orders/${id}`);
     return response.data;
   },
 
-  async createLoop(data: any) {
-    const response = await api.post('/loops', data);
+  async createOrder(data: any) {
+    const response = await api.post('/orders', data);
     return response.data;
   },
 
-  async updateLoop(id: string, data: any) {
-    const response = await api.put(`/loops/${id}`, data);
+  async updateOrder(id: string, data: any) {
+    const response = await api.put(`/orders/${id}`, data);
     return response.data;
   },
 
-  async deleteLoop(id: string) {
-    const response = await api.delete(`/loops/${id}`);
+  async getProducts(params?: any) {
+    const response = await api.get('/products', { params });
     return response.data;
   },
 
-  async executeLoop(id: string, data?: any) {
-    const response = await api.post(`/loops/${id}/execute`, { data });
-    return response.data;
-  },
-
-  async duplicateLoop(id: string) {
-    const response = await api.post(`/loops/${id}/duplicate`);
-    return response.data;
-  },
-
-  async toggleLoop(id: string) {
-    const response = await api.patch(`/loops/${id}/toggle`);
-    return response.data;
-  },
-
-  async publishLoop(id: string) {
-    const response = await api.patch(`/loops/${id}/publish`);
-    return response.data;
-  },
-
-  async getExecutions(id: string) {
-    const response = await api.get(`/loops/${id}/executions`);
+  async getCustomers(params?: any) {
+    const response = await api.get('/customers', { params });
     return response.data;
   },
 };
