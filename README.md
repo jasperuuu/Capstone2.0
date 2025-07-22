@@ -75,8 +75,8 @@ magic-loops/
 - PHP 8.2 or higher
 - Composer
 - Node.js 18+ and npm/yarn
-- SQLite (development) or PostgreSQL (production)
-- Redis (for queues)
+- MySql
+  
 
 ### Backend Setup
 
@@ -130,8 +130,8 @@ APP_ENV=local
 APP_DEBUG=true
 APP_URL=http://localhost:8000
 
-DB_CONNECTION=sqlite
-DB_DATABASE=database/database.sqlite
+DB_CONNECTION=mysql
+DB_DATABASE=(its up to you repa)
 
 # OpenAI Configuration
 OPENAI_API_KEY=your_openai_api_key
