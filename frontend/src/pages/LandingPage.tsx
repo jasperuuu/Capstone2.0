@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button, Navbar, Nav } from 'react-bootstrap';
-import { Play, Zap, Code, Bot, ArrowRight } from 'lucide-react';
+import { ShoppingCart, Package, Users, TrendingUp, ArrowRight } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
   return (
@@ -10,14 +10,11 @@ const LandingPage: React.FC = () => {
       <Navbar expand="lg" className="navbar-dark position-absolute w-100" style={{ zIndex: 10 }}>
         <Container>
           <Navbar.Brand href="/" className="fw-bold fs-3 text-gradient">
-            Magic Loops
+            Business Manager
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/explore" className="text-light">
-                Explore
-              </Nav.Link>
               <Nav.Link as={Link} to="/login" className="text-light">
                 Sign In
               </Nav.Link>
@@ -36,18 +33,18 @@ const LandingPage: React.FC = () => {
             <Col lg={10}>
               <div className="hero-content">
                 <h1 className="hero-title">
-                  Build Apps without coding
+                  Manage Your Business Efficiently
                 </h1>
                 <p className="hero-subtitle">
-                  The no-code, all-code platform that builds professional AI-native apps in minutes, not months. 
-                  Combine LLMs and code to create powerful automation workflows.
+                  Complete business management solution with inventory tracking, order processing, 
+                  customer management, and comprehensive analytics to grow your business.
                 </p>
                 <div className="d-flex gap-3 justify-content-center flex-wrap">
                   <Link to="/register" className="btn-primary-gradient">
-                    <Play size={20} />
-                    Create Your First Loop
+                    <ShoppingCart size={20} />
+                    Start Managing Today
                   </Link>
-                  <Link to="/explore" className="btn btn-outline-light btn-modern">
+                  <Link to="/login" className="btn btn-outline-light btn-modern">
                     Explore Examples
                     <ArrowRight size={20} />
                   </Link>
@@ -64,10 +61,10 @@ const LandingPage: React.FC = () => {
           <Row className="text-center mb-5">
             <Col>
               <h2 className="display-5 fw-bold text-gradient mb-3">
-                Easily build amazingly intelligent Apps
+                Everything you need to manage your business
               </h2>
               <p className="lead text-muted">
-                Learn how you can create fun and professional Apps with the power of AI
+                Comprehensive tools for inventory, orders, customers, and analytics
               </p>
             </Col>
           </Row>
@@ -76,11 +73,11 @@ const LandingPage: React.FC = () => {
             <Col md={6} lg={3}>
               <div className="card-modern p-4 text-center h-100">
                 <div className="mb-3">
-                  <Bot size={48} className="text-primary" />
+                  <Package size={48} className="text-primary" />
                 </div>
-                <h5 className="text-light mb-3">AI-Powered Blocks</h5>
+                <h5 className="text-light mb-3">Inventory Management</h5>
                 <p className="text-muted">
-                  Use GPT, Claude, and other LLMs to process data, generate content, and make intelligent decisions.
+                  Track products, raw materials, stock levels, and manage production orders efficiently.
                 </p>
               </div>
             </Col>
@@ -88,11 +85,11 @@ const LandingPage: React.FC = () => {
             <Col md={6} lg={3}>
               <div className="card-modern p-4 text-center h-100">
                 <div className="mb-3">
-                  <Code size={48} className="text-primary" />
+                  <ShoppingCart size={48} className="text-primary" />
                 </div>
-                <h5 className="text-light mb-3">Code Blocks</h5>
+                <h5 className="text-light mb-3">Order Processing</h5>
                 <p className="text-muted">
-                  Write custom JavaScript code for complex logic, data transformation, and API integrations.
+                  Complete order management from creation to fulfillment with real-time tracking.
                 </p>
               </div>
             </Col>
@@ -100,11 +97,11 @@ const LandingPage: React.FC = () => {
             <Col md={6} lg={3}>
               <div className="card-modern p-4 text-center h-100">
                 <div className="mb-3">
-                  <Zap size={48} className="text-primary" />
+                  <Users size={48} className="text-primary" />
                 </div>
-                <h5 className="text-light mb-3">Instant Triggers</h5>
+                <h5 className="text-light mb-3">Customer Management</h5>
                 <p className="text-muted">
-                  Trigger your loops via webhooks, email, schedule, or manual execution.
+                  Manage customer information, track interactions, and build lasting relationships.
                 </p>
               </div>
             </Col>
@@ -112,11 +109,11 @@ const LandingPage: React.FC = () => {
             <Col md={6} lg={3}>
               <div className="card-modern p-4 text-center h-100">
                 <div className="mb-3">
-                  <Play size={48} className="text-primary" />
+                  <TrendingUp size={48} className="text-primary" />
                 </div>
-                <h5 className="text-light mb-3">Easy Automation</h5>
+                <h5 className="text-light mb-3">Analytics & Reports</h5>
                 <p className="text-muted">
-                  Simply describe your task and we'll generate a loop that handles your workflow.
+                  Comprehensive analytics and reporting to make data-driven business decisions.
                 </p>
               </div>
             </Col>
@@ -130,10 +127,10 @@ const LandingPage: React.FC = () => {
           <Row className="text-center mb-5">
             <Col>
               <h2 className="display-5 fw-bold text-light mb-3">
-                What are people building?
+                Perfect for any business
               </h2>
               <p className="lead text-muted">
-                From simple automations to complex workflows
+                From small startups to enterprise operations
               </p>
             </Col>
           </Row>
@@ -141,13 +138,13 @@ const LandingPage: React.FC = () => {
           <Row className="g-4">
             <Col md={4}>
               <div className="card-modern p-4">
-                <h5 className="text-light mb-3">📊 Data Processing</h5>
+                <h5 className="text-light mb-3">🏪 Retail Business</h5>
                 <p className="text-muted mb-3">
-                  Automatically process CSV files, generate reports, and sync data between systems.
+                  Manage products, track inventory, process orders, and analyze sales performance.
                 </p>
                 <div className="d-flex flex-wrap gap-2">
-                  <span className="badge bg-primary">CSV Processing</span>
-                  <span className="badge bg-secondary">Report Generation</span>
+                  <span className="badge bg-primary">Product Catalog</span>
+                  <span className="badge bg-secondary">Sales Tracking</span>
                 </div>
               </div>
             </Col>

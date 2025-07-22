@@ -10,10 +10,6 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
-import LoopsPage from './pages/LoopsPage';
-import LoopBuilderPage from './pages/LoopBuilderPage';
-import LoopDetailPage from './pages/LoopDetailPage';
-import ExplorePage from './pages/ExplorePage';
 import ProfilePage from './pages/ProfilePage';
 
 // Styles
@@ -40,36 +36,11 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
-              <Route path="/explore" element={<ExplorePage />} />
               
               {/* Protected Routes */}
               <Route path="/dashboard" element={
                 <ProtectedRoute>
                   <DashboardPage />
-                </ProtectedRoute>
-              } />
-              
-              <Route path="/loops" element={
-                <ProtectedRoute>
-                  <LoopsPage />
-                </ProtectedRoute>
-              } />
-              
-              <Route path="/loops/new" element={
-                <ProtectedRoute>
-                  <LoopBuilderPage />
-                </ProtectedRoute>
-              } />
-              
-              <Route path="/loops/:id" element={
-                <ProtectedRoute>
-                  <LoopDetailPage />
-                </ProtectedRoute>
-              } />
-              
-              <Route path="/loops/:id/edit" element={
-                <ProtectedRoute>
-                  <LoopBuilderPage />
                 </ProtectedRoute>
               } />
               
