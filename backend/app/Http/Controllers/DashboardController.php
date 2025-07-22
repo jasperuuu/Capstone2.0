@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
+use App\Models\Customer;
+use App\Models\Product;
 
 class DashboardController extends Controller
 {
@@ -12,72 +15,58 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         
-        // Get recent loops
-        $recentLoops = $user->loops()
-            ->with(['executions' => function ($query) {
-                $query->latest()->limit(1);
-            }])
-            ->orderBy('updated_at', 'desc')
+        // Get recent orders
+        $recentOrders = Order::with(['customer', 'items.product'])
+            ->orderBy('created_at', 'desc')
             ->limit(5)
             ->get();
 
-        // Get recent executions
-        $recentExecutions = $user->loops()
-            ->join('loop_executions', 'loops.id', '=', 'loop_executions.loop_id')
-            ->select('loop_executions.*', 'loops.name as loop_name')
-            ->orderBy('loop_executions.created_at', 'desc')
-            ->limit(10)
+        // Get recent customers
+        $recentCustomers = Customer::orderBy('created_at', 'desc')
+            ->limit(5)
             ->get();
 
-        // Calculate statistics
-        $totalLoops = $user->loops()->count();
-        $activeLoops = $user->loops()->where('is_active', true)->count();
-        $totalExecutions = $user->loops()->sum('execution_count');
-        $successfulExecutions = $user->loops()
-            ->join('loop_executions', 'loops.id', '=', 'loop_executions.loop_id')
-            ->where('loop_executions.status', 'completed')
-            ->count();
+        // Calculate business statistics
+        $totalOrders = Order::count();
+        $totalCustomers = Customer::count();
+        $totalProducts = Product::count();
+        $totalRevenue = Order::where('status', 'completed')->sum('total_amount');
 
-        $successRate = $totalExecutions > 0 
-            ? round(($successfulExecutions / $totalExecutions) * 100, 1)
-            : 0;
-
-        // Get execution stats for the last 7 days
-        $executionStats = [];
+        // Get order stats for the last 7 days
+        $orderStats = [];
         for ($i = 6; $i >= 0; $i--) {
             $date = now()->subDays($i);
-            $count = $user->loops()
-                ->join('loop_executions', 'loops.id', '=', 'loop_executions.loop_id')
-                ->whereDate('loop_executions.created_at', $date)
-                ->count();
+            $count = Order::whereDate('created_at', $date)->count();
+            $revenue = Order::whereDate('created_at', $date)
+                ->where('status', 'completed')
+                ->sum('total_amount');
             
-            $executionStats[] = [
+            $orderStats[] = [
                 'date' => $date->format('Y-m-d'),
-                'executions' => $count
+                'orders' => $count,
+                'revenue' => $revenue
             ];
         }
 
-        // Get category breakdown
-        $categoryStats = $user->loops()
-            ->selectRaw('category, COUNT(*) as count')
-            ->groupBy('category')
-            ->pluck('count', 'category')
+        // Get order status breakdown
+        $statusStats = Order::selectRaw('status, COUNT(*) as count')
+            ->groupBy('status')
+            ->pluck('count', 'status')
             ->toArray();
 
         return response()->json([
             'stats' => [
-                'total_loops' => $totalLoops,
-                'active_loops' => $activeLoops,
-                'total_executions' => $totalExecutions,
-                'success_rate' => $successRate,
-                'credits_used' => $user->credits_used,
-                'credits_limit' => $user->credits_limit,
-                'credits_remaining' => max(0, $user->credits_limit - $user->credits_used)
+                'total_orders' => $totalOrders,
+                'total_customers' => $totalCustomers,
+                'total_products' => $totalProducts,
+                'total_revenue' => $totalRevenue,
+                'pending_orders' => Order::where('status', 'pending')->count(),
+                'completed_orders' => Order::where('status', 'completed')->count()
             ],
-            'recent_loops' => $recentLoops,
-            'recent_executions' => $recentExecutions,
-            'execution_stats' => $executionStats,
-            'category_stats' => $categoryStats
+            'recent_orders' => $recentOrders,
+            'recent_customers' => $recentCustomers,
+            'order_stats' => $orderStats,
+            'status_stats' => $statusStats
         ]);
     }
 }
